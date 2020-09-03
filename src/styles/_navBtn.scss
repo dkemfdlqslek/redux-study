@@ -1,0 +1,78 @@
+@import './introBox';
+@import './mediaQueries';
+
+
+
+
+
+a{
+    text-decoration: none;
+    transition: color 0.3s ease-out;
+    color: $border-right-color;
+
+    button {
+        font: {
+            weight: bold;
+            size: 1.3rem;
+            family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        };
+
+        @include border-radius(1.7rem);
+        padding: 0.5rem;
+        outline: none;
+        border: {
+            width: 2px;
+            style: solid;
+            color: $border-right-color;
+        };
+
+        transition : {
+            property: background-color;
+            duration: 0.3s;
+            timing-function: ease-out;
+        };
+        background-color: #ffffff;
+        &:hover{
+            transition: {
+                property: background-color , color, border;
+                duration: 0.3s;
+                timing-function: ease-out;
+            }
+            background-color: $border-bottom-color;
+            color: #ffffff;
+            border: {
+                width: 2px;
+                style: solid;
+                color: #ffffff;
+            };
+            cursor: pointer;
+        }
+        
+    }
+
+
+}
+
+@include mobile{
+    a{
+        button{
+            padding: 0.2rem;
+            font: {
+                size: 1rem;
+            }
+        }
+    }
+
+}
+
+@include tablet{
+    a{
+        button{
+            padding: 0.4rem;
+            font: {
+                size: 1.2rem;
+            }
+        }
+    }
+
+}

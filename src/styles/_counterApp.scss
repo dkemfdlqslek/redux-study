@@ -1,0 +1,114 @@
+@import './mediaQueries';
+@import './introBox';
+
+
+.counterApp{
+    @include border-radius(10px);
+    background-color: #fac9ef;
+    padding: 3rem 0;
+    box-shadow: 15px 15px 0px 5px rgb(240, 171, 234) ;
+    transition: box-shadow ease 0.3s;
+    &:hover{
+        box-shadow: 0px 0px 0px 20px rgb(240, 171, 234);
+        transition: box-shadow ease 0.3s;
+    }
+}
+
+
+.counterBtn{
+    appearance: none;
+    outline: none;
+    background: none;
+    margin: 0 0.5rem;
+    padding: 0.3rem 0.6rem;
+    font: {
+        size: 1.3rem;
+        family: 'Courier New', Courier, monospace;
+    };
+    transition: {
+        property: border, color;
+        duration: 0.3s;
+        timing-function: ease-out;
+    }
+    color: #f07bff;
+    background-color: #f9dfff;
+    @include border-radius(1rem);
+    border: 2px solid transparent;
+    &:hover{
+        cursor: pointer;
+        transition: {
+            property: border, color;
+            duration: 0.3s;
+            timing-function: ease-out;
+        };
+        border: 2px solid #f07bff;
+        color: #731880;
+    }
+    &:active{
+        background-color: #d5b3dd;
+    }
+
+}
+strong{
+    text-align: center;
+    display: inline-block;
+    min-width: 5rem;
+    
+    font : {
+        size: 2rem;
+        family: 'Courier New', Courier, monospace;
+    }
+    position: relative;
+    top: 0.2rem;
+}
+
+.inputAmount{
+    width: 20rem;
+    margin: auto;
+    background-color: #f9dfff;
+    @include border-radius(5px);
+    color:  #f07bff;
+    display: flex;
+    label{
+        font: {
+            weight: bold;
+            size: 1.8rem;
+            family: 'Courier New', Courier, monospace;
+        };
+        margin: 0 1rem;
+    }
+}
+
+input[type='text']{
+    outline: none;
+    text-align: center;
+    width: 10rem;
+    font : {
+        size: 1.5rem;
+        family: 'Courier New', Courier, monospace;
+    }
+    border: 2px solid #f07bff;
+    float: right;
+    
+}
+
+
+
+@include mobile{
+    .counterApp{
+        box-shadow: 7px 7px 0px 3px rgb(240, 171, 234) ;
+        &:hover{
+            box-shadow: 0px 0px 0px 10px rgb(240, 171, 234);
+        }
+    }
+
+}
+
+@include tablet{
+    .counterApp{
+        box-shadow: 11px 11px 0px 4px rgb(240, 171, 234) ;
+        &:hover{
+            box-shadow: 0px 0px 0px 15px rgb(240, 171, 234);
+        }
+    }
+}

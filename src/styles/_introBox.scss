@@ -1,0 +1,124 @@
+@import './mediaQueries';
+
+
+$font: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+$colorOfLast: #f8cd58e0;
+$border-top-color: #d9b0ff;
+$border-left-color: #c383ff;
+$border-right-color: #8c28e9;
+$border-bottom-color: #450d79;
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+@keyframes introBox{
+    from{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.boxWrapper{
+    opacity: 0;
+    width:80%;
+    margin: auto;
+    @include border-radius(5px);
+    animation: introBox 0.5s forwards 0.8s ease-out;
+    border: {
+        width: 4px;
+        style: solid;
+        color: $border-top-color $border-right-color $border-bottom-color $border-left-color;
+    };
+
+    .introBox{
+        opacity: 0;
+        margin: 2rem;
+        padding: 0.5rem 1rem;
+        line-height: 2.5em;
+        @include border-radius(5px);
+        border: {
+            width: 2px;
+            style: solid;
+            color: $border-top-color $border-right-color $border-bottom-color $border-left-color;
+        };
+
+        @for $i from 1 through 4 {
+            &:nth-of-type(#{$i}){
+                animation: introBox 0.5s forwards 1.0+($i * 0.3s) ease-out;
+            }
+        }
+
+        dt{
+            font: {
+                weight: bold;
+                size: 1.8rem;
+                family: $font;
+            };
+        }
+
+        dd{
+            font: {
+                weight: bold;
+                size: 1.3rem;
+                family: $font;
+            };
+            &:last-child{
+                color:#ab6cf3;
+            }  
+        }
+
+    }
+}
+
+@include mobile {
+    .introBoxWrapper{
+        width:90%;
+        .introBox{
+            margin: 1rem;
+            padding: 0.25rem 0.5rem;
+            line-height: 1.5em;
+
+            dt{
+                font-size:1.2rem;
+            }
+
+            dd{
+                font-size:1.0rem;
+            }
+            .counterBtn{
+                margin: 0.25rem;
+                padding: 0.15rem 0.5rem;
+                font-size: 1rem;
+            }
+            strong{
+                min-width:2.5rem;
+            }
+        }
+    }
+}
+
+@include tablet {
+    .introBoxWrapper{
+        width:85%;
+        .introBox{
+            margin: 1.5rem;
+            padding: 0.35rem 0.75rem;
+            line-height: 2em;
+
+            dt{
+                font-size:1.5rem;
+            }
+
+            dd{
+                font-size:1.2rem;
+            }
+        }
+    }
+}

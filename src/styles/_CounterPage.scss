@@ -1,0 +1,30 @@
+@import './mediaQueries';
+@import './introBox';
+
+
+.explainBox{
+    text-align: center;
+    margin: 2rem;
+    & > p{
+        font: {
+            weight: bold;
+            size: 1.8rem;
+            family: $font;
+        };
+    } 
+}
+
+@include mobile{
+    .explainBox > p{
+        margin: 1rem;
+        font-size: 1.2rem;
+    }
+    
+}
+
+@include tablet{
+    .explainBox > p{
+        margin: 1.5rem;
+        font-size: 1.4rem;
+    }
+}
