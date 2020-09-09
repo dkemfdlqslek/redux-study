@@ -74,12 +74,14 @@ $border-bottom-color: #450d79;
             }  
         }
 
+        
+
     }
 }
 
 @include mobile {
     .introBoxWrapper{
-        width:90%;
+        width:95%;
         .introBox{
             margin: 1rem;
             padding: 0.25rem 0.5rem;

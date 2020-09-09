@@ -34,7 +34,8 @@ const intro_3 = {
 const intro_4 = {
   headline: "Let's see about some examples.",
   contents: [
-      <Link to='/Counter'>Counter app</Link>
+      <Link to='/Counter'>Counter app</Link>,
+      <Link to='/Todo'>Todo app</Link>
   ]
 }
 

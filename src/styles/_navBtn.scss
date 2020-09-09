@@ -7,7 +7,6 @@
 
 a{
     text-decoration: none;
-    transition: color 0.3s ease-out;
     color: $border-right-color;
 
     button {
@@ -27,7 +26,7 @@ a{
         };
 
         transition : {
-            property: background-color;
+            property: background-color, border;
             duration: 0.3s;
             timing-function: ease-out;
         };
@@ -46,6 +45,15 @@ a{
                 color: #ffffff;
             };
             cursor: pointer;
+        }
+        &[class="nav-active"]{
+            background-color: $border-bottom-color;
+            color: #ffffff;
+            border: {
+                width: 2px;
+                style: solid;
+                color: #ffffff;
+            };
         }
         
     }
