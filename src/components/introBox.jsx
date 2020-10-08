@@ -6,9 +6,10 @@ import {mediaQueries} from 'styles/_media';
 
 
 
-const fadeBoxDelay = () => {
+
+const fadeBoxDelay = (number) => {
     let styles = '';
-    for (let i = 1; i < 5; i++){
+    for (let i = 1; i <= number; i++){
         styles += `
             &:nth-of-type(${i}){
                 animation-delay: ${1 + (i * 0.3)}s;
@@ -22,7 +23,7 @@ const IntroBoxing = styled.article`
     opacity: 0;
     margin: 1rem;
     padding: 0.25rem 0.5rem;
-    line-height: 1.5em;
+    line-height: 1.5rem;
     border-width: 2px;
     border-style: solid; 
     border-color: ${box_border.TOP} ${box_border.RIGHT} ${box_border.BOTTOM} ${box_border.LEFT};
@@ -35,7 +36,7 @@ const IntroBoxing = styled.article`
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
-    ${fadeBoxDelay()};
+    ${fadeBoxDelay(4)};
 
     dt{
         font-size: 1.2rem;
@@ -50,7 +51,7 @@ const IntroBoxing = styled.article`
     ${mediaQueries.TABLET`
         margin: 1.5rem;
         padding: 0.35rem 0.75rem;
-        line-height: 2em;
+        line-height: 2rem;
 
         dt{
             font-size:1.5rem;
@@ -64,7 +65,7 @@ const IntroBoxing = styled.article`
     ${mediaQueries.DESKTOP`
         margin: 2rem;
         padding: 0.5rem 1rem;
-        line-height: 2.5em;
+        line-height: 2.5rem;
 
         dt{
             font-size:1.8rem;
@@ -107,14 +108,18 @@ const ContentBox = props => {
 }
 
 const IntroBox = props => {
-    
+    const {contents} = props;
     return (
-        <IntroBoxing>
-            <dl>
-                <Headline headline={props.headline} />
-                <ContentBox contents={props.contents}/>
-            </dl>
-        </IntroBoxing>
+        contents.map((explain, index) => {
+            return(
+                <IntroBoxing key={index}>
+                    <dl>
+                        <Headline headline={explain.headline} />
+                        <ContentBox contents={explain.contents}/>
+                    </dl>
+                </IntroBoxing>
+            )
+        })
     )
 };
 
