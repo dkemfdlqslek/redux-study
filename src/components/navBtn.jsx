@@ -31,7 +31,6 @@ const HeaderButton = styled.button`
     color: ${ ({exactRoute}) => exactRoute ? '#ffffff' : ''};
     
     &:hover{
-        ${btnTransition}
         background-color: ${box_border.BOTTOM};
         color: #ffffff;
         border: 2px solid #ffffff;

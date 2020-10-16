@@ -7,6 +7,8 @@ const Todo = () => {
             <SectionHeader>
                 <SectionTitle>Hello, TodoApp!</SectionTitle>
             </SectionHeader>
+            <BoxWrapper>
+            </BoxWrapper>
         </React.Fragment>
     );
 };

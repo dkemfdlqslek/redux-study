@@ -19,9 +19,6 @@ const ReduxPatternImg = styled.img`
 
     box-shadow: 0px 0px 0px 0px #ffffff;
     &:hover, &:focus{
-        transition-property: top, box-shadow;
-        transition-duration: 0.3s;
-        transition-timing-function: ease-out;
 
         top:-0.5rem;
         box-shadow: 0px 8px 7px 0px #aaaaaa;

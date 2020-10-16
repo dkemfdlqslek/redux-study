@@ -17,7 +17,6 @@ const CounterBox = styled.article`
     transition: box-shadow ease 0.3s;
     &:hover, &:focus{
         box-shadow: 0px 0px 0px 10px rgb(240, 171, 234);
-        transition: box-shadow ease 0.3s;
     }
 
     ${mediaQueries.TABLET`
@@ -43,9 +42,6 @@ const counterBtnTrans = (duration) => css`
     border: 2px solid transparent;
 
     &:hover, &:focus{
-        transition-property: border, color;
-        transition-duration: ${duration};
-        transition-timing-function: ease-out;
         color: #731880;
         border: 2px solid #f07bff;
         cursor: pointer;

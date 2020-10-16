@@ -26,10 +26,10 @@ export const toggleUpdateTodo = (param) => ({
     }
 });
 
-export const deleteTodo = (param) => ({
+export const deleteTodo = (id) => ({
     type: DELETE_TODO,
     payload: {
-        id: param.id
+        id
     }
 });
 
@@ -41,9 +41,9 @@ export const changingStateTodo = (param) => ({
     }
 });
 
-export const filteringTodo = (param) => ({
+export const filteringTodo = (filter) => ({
     type: FILTERING_TODO,
-    patload: {
-        visiblePoint: param.visiblePoint
+    payload: {
+        filter
     }
 });
