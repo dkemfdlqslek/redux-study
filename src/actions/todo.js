@@ -2,11 +2,11 @@ import {ADD_TODO, UPDATE_TODO, DELETE_TODO, FILTERING_TODO, CHANGING_STATE_TODO,
 
 let index = 0;
 
-export const addTodo = (param) => ({
+export const addTodo = (content) => ({
     type: ADD_TODO,
     payload: {
         id: index++,
-        content: param.content
+        content: content
     }
 });
 
@@ -44,6 +44,6 @@ export const changingStateTodo = (param) => ({
 export const filteringTodo = (filter) => ({
     type: FILTERING_TODO,
     payload: {
-        filter
+        filter: filter
     }
 });

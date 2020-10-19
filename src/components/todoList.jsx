@@ -7,12 +7,13 @@ const ListStyle = styled.ul`
 `
 
 
-export const TodoList = ({todos}, dispatch) => {
+export const TodoList = (props) => {
+    const dispatchProps = Object.assign({}, props, {todos: []});
     return(
     <ListStyle>
-        {todos.map(todo => {
+        {props.todos.map(todo => {
             return(
-                <Todo {...todo} {...dispatch} key={todo.id}/>
+                <Todo key={todo.id} {...todo} {...dispatchProps}/>
             )
         })}
     </ListStyle>

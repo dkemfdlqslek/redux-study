@@ -1,13 +1,13 @@
 import {connect} from 'react-redux';
-import {visibleTodoList} from 'components/containers/VisibleTodoList';
-import {FilteringBtn} from 'components/FilteringBtn';
+import {filteringTodo} from 'actions/todo';
+import {FilteringBtn} from 'components/filteringBtn';
 
 const mapStateToProps = (state, ownProps) => ({
-    active: state.filter === ownProps.filter
+    active: state.todo.filter === ownProps.filter
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onClick: () => dispatch(visibleTodoList(ownProps.filter))
+    onClick: () => dispatch(filteringTodo(ownProps.filter))
 });
 
 export default connect(

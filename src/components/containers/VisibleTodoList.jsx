@@ -9,16 +9,16 @@ const visibleTodoList = (todos, filter) => {
         case todoFilters.SHOW_ALL :
             return todos;
         case todoFilters.SHOW_ACTIVE :
-            return todos.filter(todo => todo.isFinished);
-        case todoFilters.SHOW_FINISHED :
             return todos.filter(todo => !todo.isFinished);
+        case todoFilters.SHOW_FINISHED :
+            return todos.filter(todo => todo.isFinished);
         default : 
             throw new Error(`Undefined filter: ${filter}`);
     }
 }
 
 const mapStateToProps = state => ({
-    todos: visibleTodoList(state.todos, state.filter)
+    todos: visibleTodoList(state.todo.todos, state.todo.filter)
 })
 
 const mapDispatchToProps = dispatch => ({

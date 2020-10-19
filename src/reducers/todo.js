@@ -50,7 +50,7 @@ export default function(state = initialState, action){
             const {id, isFinished} = action.payload;
             const reduce = {
                 ...state,
-                todos: state.map(todo => 
+                todos: state.todos.map(todo => 
                     todo.id === id ? {...todo, isFinished: !isFinished} : todo)
             } 
             return reduce;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FilteringBtn} from 'components/FilteringBtn';
+import FilteringBtn from 'components/containers/FilterPointContainer';
 import {todoFilters} from 'actions/types_todo';
 
 export const FilteringSection = () => (
