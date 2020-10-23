@@ -12,8 +12,8 @@ const Todo = () => {
             </SectionHeader>
             <BoxWrapper>
                 <TodoInputForm />
+                <FilteringSection />
                 <VisibleTodoList />
-                <FilteringSection />    
             </BoxWrapper>
         </React.Fragment>
     );

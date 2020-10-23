@@ -5,7 +5,8 @@ import {addTodo} from 'actions/todo';
 import {AddToQueue} from '@styled-icons/boxicons-regular';
 import {Radius} from 'styles/_constants';
 
-const InputFromStyle = styled.input`
+const InputFormStyle = styled.input`
+    outline: none;
     width: 10rem;
     height: 2rem;
     margin: auto;
@@ -28,21 +29,27 @@ export const TodoInputForm = () => {
     const [inputValue, setInputValue] = useState('');
     const dispatch = useDispatch();
 
+    const inputConfirm = () => {
+        if(inputValue.trim() === '' || inputValue === undefined){
+            return(alert('Please type input.'));
+        }else{
+            dispatch(addTodo(inputValue));
+            setInputValue('');
+        }
+    }
+
     return(
-        <form>
-            <InputFromStyle 
+        <form onSubmit={e => e.preventDefault()}>
+            <InputFormStyle 
                 type="text" 
                 name="inputValue" 
                 placeholder="please enter 'todo'"
                 maxLength="100"
                 value={inputValue}
                 onChange={e => setInputValue(e.target.value)}
-                required
+                onKeyPress={e => e.key === 'Enter' && inputConfirm()}
             />
-            <AddTodoBtn onClick={()=> {
-                dispatch(addTodo(inputValue))
-                setInputValue('')
-                }}/>
+            <AddTodoBtn onClick={inputConfirm}/>
         </form>
     );
 }

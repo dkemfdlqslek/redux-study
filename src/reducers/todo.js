@@ -17,7 +17,8 @@ export default function(state = initialState, action){
     switch (action.type) {
         case ADD_TODO : {
             const addState = Object.assign(action.payload, {isFinished : false, isUpdate : false});
-            const reduce = {...state, todos: state.todos.concat(addState)}
+            const reduce = {...state,
+                todos: state.todos.concat(addState)}
             return reduce;
         }
         case TOGGLE_UPDATE_TODO: {

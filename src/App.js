@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import {Home, Counter, Todo} from 'pages/index';
 import {NavButton} from 'components/navBtn';
 import 'styles/_App.scss';
+import 'normalize.css';
 
 const RestoreScroll = () =>{
   const {pathname} = useLocation();

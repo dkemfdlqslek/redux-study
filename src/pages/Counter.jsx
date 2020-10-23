@@ -35,7 +35,7 @@ const Counter = () => {
                         ${redux_pattern_lg} 761w`;
 
     const explain_1 = `you can click the plus(+) or minus(-) button to raise or down number between buttons.\nalso, you can adjust raise or down amount to modify the number in input text-box.\nand to click reset button, your counter will reset to zero.`;
-    const explain_2 = `In redux-system, you cannot modify state directly.\nInstead, there are indirect request to change state called "action".\naction means literally "interaction" between user and application.-click the button, go to another page, typing input text-box, something else.`;
+    const explain_2 = `In redux-system, you cannot modify state directly.\nInstead, there are indirect request to change state called "action".\naction means literally "interaction" between user and application.\n-click the button, go to another page, typing input text-box, something else.`;
     const explain_3 = `when "the action" occurs, application calls "dispatch function".\nthis function sends action object to "reducer".\nreducer is the collection of logics that resolve action.\nreducer receive the previous state and action object.\nand reducer distinguish sort of action and make new state from previous state.`;
     const explain_4 = `and then, store-involving every state and reducer is alert to component "state is changed".\nthis step called "subscribe".\nfinally, components are rendered according to changes of state.\nthis is all about the flow of redux-system.`;
 

@@ -14,21 +14,26 @@ const TodoItem = styled.li`
     cursor: pointer;
     ${Radius('10px')};
     width: 30rem;
+    height: 1.5rem;
     display:block;
     position: relative;
     list-style: none;
+    z-index: 0;
     transition: background-color 0.3s ease-out;
     text-decoration: ${ ({isFinished}) => isFinished ? 'line-through' : 'none' };
     padding: 1.5rem;
 
     &:hover,&:focus{
-        background-color: #EEEEEE;
+        background-color: #EEE;
         & > svg {
             opacity: 1;
         }
     }
+    &:active{
+        background-color: #AAA;
+    }
     ${({isUpdate}) => isUpdate  
-    &&`background-color: #EEEEEE;
+    &&`background-color: #EEE;
     & > svg {
         opacity: 1;
     }
@@ -42,6 +47,7 @@ const todoBtnTrans = (duration) => css`
     ${Radius('5px')};
     width: 3rem;
     height: 3rem;
+    z-index: 1;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -76,9 +82,10 @@ const CancelUpdateBtn = styled(X)`
 `
 
 const TodoInput = styled.input`
+    border: none;
     outline: none;
     width: 60%;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     ${Radius('10px')};
 `
 
@@ -108,6 +115,15 @@ export const Todo = props => {
 
     const [updateContent, setUpdateContent] = useState(content);
 
+    const inputUpdateConfirm = () => {
+        if(updateContent.trim() === '' || updateContent === undefined){
+            return(alert('Please type input.'));
+        }else{
+            updateTodo({id: id, content: updateContent});
+            setUpdateContent('');
+        }
+    }
+
     if(isUpdate){
         return(
             <TodoItem isUpdate={isUpdate}>
@@ -117,14 +133,14 @@ export const Todo = props => {
                 name='updateContent'
                 required='true'
                 onChange={e => setUpdateContent(e.target.value)}
-                onKeyPress={e => e.charCode === 13 && updateTodo({id: id, content: updateContent})}/>
+                onKeyPress={e => e.key === 'Enter' && updateTodo({id: id, content: updateContent})}/>
                 <CancelUpdateBtn onClick={e => {
                     e.stopPropagation();
                     toggleUpdateTodo({id: id, isUpdate: isUpdate});
                     setUpdateContent(content);}}/>
                 <UpdateCompleteBtn onClick={e => {
                     e.stopPropagation();
-                    updateTodo({id: id, content: updateContent})}}/>
+                    inputUpdateConfirm();}}/>
             </TodoItem>
         );
     }else {
