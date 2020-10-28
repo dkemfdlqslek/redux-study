@@ -15,6 +15,7 @@ const InputFormStyle = styled.input`
 const AddTodoBtn = styled(AddToQueue)`
     width: 2.5rem;
     height: 2.5rem;
+    margin-left: 1rem; 
     ${Radius('10px')};
     transition: background-color 0.3s ease-out;
     &:hover{
@@ -44,7 +45,7 @@ export const TodoInputForm = () => {
                 type="text" 
                 name="inputValue" 
                 placeholder="please enter 'todo'"
-                maxLength="100"
+                maxLength="30"
                 value={inputValue}
                 onChange={e => setInputValue(e.target.value)}
                 onKeyPress={e => e.key === 'Enter' && inputConfirm()}

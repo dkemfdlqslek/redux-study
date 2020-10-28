@@ -11,17 +11,18 @@ const TodoItem = styled.li`
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    background-color: #fff;
+    margin: 1rem auto;
     cursor: pointer;
     ${Radius('10px')};
-    width: 30rem;
-    height: 1.5rem;
+    width: 90%;
+    height: 3rem;
     display:block;
     position: relative;
-    list-style: none;
     z-index: 0;
     transition: background-color 0.3s ease-out;
     text-decoration: ${ ({isFinished}) => isFinished ? 'line-through' : 'none' };
-    padding: 1.5rem;
+    padding-left: 1.5rem;
 
     &:hover,&:focus{
         background-color: #EEE;
@@ -39,14 +40,21 @@ const TodoItem = styled.li`
     }
     `
     }
+
+    &::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+
 `
 
 
 const todoBtnTrans = (duration) => css`
     cursor: pointer;
     ${Radius('5px')};
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     z-index: 1;
     position: absolute;
     top: 50%;
@@ -67,7 +75,7 @@ const DeleteTodoBtn = styled(Trash)`
 
 const UpdateTodoBtn = styled(Pen)`
     ${todoBtnTrans('0.3s')};
-    right: 4.5rem;
+    right: 3.5rem;
     
 `
 
@@ -78,23 +86,28 @@ const UpdateCompleteBtn = styled(Check)`
 
 const CancelUpdateBtn = styled(X)`
     ${todoBtnTrans('0.3s')};
-    right: 4.5rem;
+    right: 3.5rem;
 `
 
 const TodoInput = styled.input`
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
     border: none;
     outline: none;
     width: 60%;
-    font-size: 1.4rem;
+    position: relative;
+    top: 0.75rem;
+    font-size: 1.2rem;
     ${Radius('10px')};
 `
 
 const TodoContent = styled.p`
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
     position: relative;
     display:inline;
+    top: 0.8rem;
     text-decoration: ${({isFinished}) => isFinished ? 'line-through' : 'none'};
     opacity: ${({isFinished}) => isFinished ? '0.5' : '1'};
 `
@@ -120,7 +133,6 @@ export const Todo = props => {
             return(alert('Please type input.'));
         }else{
             updateTodo({id: id, content: updateContent});
-            setUpdateContent('');
         }
     }
 
@@ -131,7 +143,8 @@ export const Todo = props => {
                 type='text' 
                 value={updateContent} 
                 name='updateContent'
-                required='true'
+                maxLength="30"
+                required={true}
                 onChange={e => setUpdateContent(e.target.value)}
                 onKeyPress={e => e.key === 'Enter' && updateTodo({id: id, content: updateContent})}/>
                 <CancelUpdateBtn onClick={e => {

@@ -22,7 +22,7 @@ const HeaderButton = styled.button`
     font-size: 1rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-    padding: 0.2rem;
+    padding: 0.5rem 0.2rem;
     outline: none;
 
     ${Radius('1.7rem')};
@@ -38,7 +38,7 @@ const HeaderButton = styled.button`
     }
 
     ${mediaQueries.TABLET`
-        padding: 0.4rem;
+        padding: 0.5rem 0.4rem;
         font-size: 1.2rem;
         
     `}
