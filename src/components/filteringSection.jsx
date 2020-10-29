@@ -5,13 +5,18 @@ import styled from 'styled-components'
 
 
 const FilterSectionStyle = styled.section`
-    display: flex;
+   align-items: center;
+   text-align: center;
 `
 
 export const FilteringSection = () => (
     <FilterSectionStyle>
+        
         <FilteringBtn filter={todoFilters.SHOW_ALL}>ALL</FilteringBtn>
+        |
         <FilteringBtn filter={todoFilters.SHOW_ACTIVE}>ACTIVE</FilteringBtn>
+        |
         <FilteringBtn filter={todoFilters.SHOW_FINISHED}>FINISHED</FilteringBtn>
+        
     </FilterSectionStyle>
 )

@@ -5,14 +5,24 @@ import {addTodo} from 'actions/todo';
 import {AddToQueue} from '@styled-icons/boxicons-regular';
 import {Radius} from 'styles/_constants';
 
-const InputFormStyle = styled.input`
+
+const AddInputFrom = styled.form`
+    margin: 1.5rem auto;
+    text-align:center;
+`
+
+const AddInputStyle = styled.input`
+    position: relative;
+    left: 2%;
     outline: none;
-    width: 10rem;
+    width: 15rem;
     height: 2rem;
     margin: auto;
 `;
 
 const AddTodoBtn = styled(AddToQueue)`
+    position: relative;
+    left: 2%;
     width: 2.5rem;
     height: 2.5rem;
     margin-left: 1rem; 
@@ -40,8 +50,8 @@ export const TodoInputForm = () => {
     }
 
     return(
-        <form onSubmit={e => e.preventDefault()}>
-            <InputFormStyle 
+        <AddInputFrom onSubmit={e => e.preventDefault()}>
+            <AddInputStyle 
                 type="text" 
                 name="inputValue" 
                 placeholder="please enter 'todo'"
@@ -51,6 +61,6 @@ export const TodoInputForm = () => {
                 onKeyPress={e => e.key === 'Enter' && inputConfirm()}
             />
             <AddTodoBtn onClick={inputConfirm}/>
-        </form>
+        </AddInputFrom>
     );
 }

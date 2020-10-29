@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled, {css} from 'styled-components';
 import {Radius} from 'styles/_constants';
 import {Trash, Pen, Check, X} from '@styled-icons/boxicons-regular';
+import {mediaQueries} from 'styles/_media';
 
 
 
@@ -41,14 +42,9 @@ const TodoItem = styled.li`
     `
     }
 
-    &::after{
-        content: '';
-        display: block;
-        clear: both;
-    }
+    
 
 `
-
 
 const todoBtnTrans = (duration) => css`
     cursor: pointer;
@@ -99,6 +95,16 @@ const TodoInput = styled.input`
     top: 0.75rem;
     font-size: 1.2rem;
     ${Radius('10px')};
+
+    ${mediaQueries.TABLET`
+        width: 70%;
+    `}
+
+    ${mediaQueries.DESKTOP`
+        width: 80%;
+    `}
+
+
 `
 
 const TodoContent = styled.p`
